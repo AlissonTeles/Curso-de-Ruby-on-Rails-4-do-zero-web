@@ -1,0 +1,43 @@
+<!-- Aviso quando o produto é criado !-->
+<% if flash[:notice]%>
+	<div class = "alert alert-success" role = "alert"> <%= flash[:notice]%> </div>
+<% end %>
+<!-- Aviso quando o produto é excluido !-->
+<% if flash[:notice1]%>
+	<div class = "alert alert-danger" role = "alert"> <%= flash[:notice1]%> </div>
+<% end %>
+
+<!DOCTYPE html>
+
+	<meta charset="utf-8">
+	<title></title>
+</head>
+<body>
+<table class="table table-striped"> 
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>Descrição</th>
+			<th>Preço</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%= render @produtos_por_nome %>
+	</tbody>
+</table>
+
+<table class="table table-striped"> 
+	<thead>
+		<tr>
+			<th>Nome</th>
+			<th>Descrição</th>
+			<th>Preço</th>
+		</tr>
+	</thead>
+	<tbody>
+		<%= render @produtos_por_preco %>
+	</tbody>
+
+</table>
+
+<%= link_to "Criar novo produto", new_produto_path %>
